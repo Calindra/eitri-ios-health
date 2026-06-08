@@ -1,0 +1,280 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.3.1 effective-5.10 (swiftlang-6.3.1.1.2 clang-2100.0.123.102)
+// swift-module-flags: -target x86_64-apple-ios16.4-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name EitriHealth
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.1
+import EitriContracts
+import Foundation
+import HealthKit
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public enum HealthDataType : Swift.String, Swift.Codable, Swift.CaseIterable {
+  case steps
+  case distance
+  case floorsClimbed
+  case activeEnergyBurned
+  case heartRate
+  case restingHeartRate
+  case oxygenSaturation
+  case respiratoryRate
+  case bodyTemperature
+  case weight
+  case height
+  case bodyFat
+  case biologicalSex
+  case dateOfBirth
+  case bloodType
+  case fitzpatrickSkinType
+  case wheelchairUse
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [EitriHealth.HealthDataType]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [EitriHealth.HealthDataType] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum HealthPermissionExercise {
+  public static let exercise: Swift.String
+}
+public enum HealthAvailabilityReason : Swift.String, Swift.Codable {
+  case unsupported
+  case providerUpdateRequired
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum HealthServiceError : Swift.Error {
+  case unsupportedDataType
+  case invalidInputStartDate
+  case invalidInputEndDate
+  case invalidInputCursor
+  case notReadableAsSample
+  case authorizationDenied
+  case healthDataUnavailable
+  public static func == (a: EitriHealth.HealthServiceError, b: EitriHealth.HealthServiceError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct HealthPermissionInput : Swift.Codable {
+  public let read: [Swift.String]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct HealthReadSamplesInput : Swift.Codable {
+  public let dataType: Swift.String
+  public let startDate: Swift.String
+  public let endDate: Swift.String
+  public let limit: Swift.Int?
+  public let ascending: Swift.Bool?
+  public let cursor: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum HealthCharacteristicName : Swift.String, Swift.Codable {
+  case biologicalSex
+  case dateOfBirth
+  case bloodType
+  case fitzpatrickSkinType
+  case wheelchairUse
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct HealthCharacteristicsInput : Swift.Codable {
+  public let names: [EitriHealth.HealthCharacteristicName]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct HealthReadExercisesInput : Swift.Codable {
+  public let startDate: Swift.String
+  public let endDate: Swift.String
+  public let limit: Swift.Int?
+  public let ascending: Swift.Bool?
+  public let cursor: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public protocol HealthPagedRecord {
+  var paginationId: Swift.String { get }
+  var paginationStartDate: Swift.String { get }
+}
+public struct HealthSupportedDataTypesOutput : Swift.Codable {
+  public let types: [EitriHealth.HealthDataType]
+  public init(types: [EitriHealth.HealthDataType])
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct HealthSourceInfo : Swift.Codable {
+  public let bundleId: Swift.String?
+  public let name: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct HealthSample {
+  public let id: Swift.String
+  public let dataType: EitriHealth.HealthDataType
+  public let startDate: Swift.String
+  public let endDate: Swift.String
+  public let value: Swift.Double
+  public let unit: Swift.String
+  public let source: EitriHealth.HealthSourceInfo?
+  public init(id: Swift.String, dataType: EitriHealth.HealthDataType, startDate: Swift.String, endDate: Swift.String, value: Swift.Double, unit: Swift.String, source: EitriHealth.HealthSourceInfo? = nil)
+}
+extension EitriHealth.HealthSample : EitriHealth.HealthPagedRecord {
+  public var paginationId: Swift.String {
+    get
+  }
+  public var paginationStartDate: Swift.String {
+    get
+  }
+}
+public struct HealthReadSamplesOutput {
+  public let samples: [EitriHealth.HealthSample]
+  public let nextCursor: Swift.String?
+  public init(samples: [EitriHealth.HealthSample], nextCursor: Swift.String? = nil)
+}
+public struct HealthExercisePlatformDetails {
+  public let platform: Swift.String
+  public init(platform: Swift.String = "ios")
+}
+public struct HealthExercise {
+  public let id: Swift.String
+  public let exerciseType: Swift.String
+  public let platformDetails: EitriHealth.HealthExercisePlatformDetails
+  public let startDate: Swift.String
+  public let endDate: Swift.String
+  public let durationSeconds: Swift.Double
+  public let title: Swift.String?
+  public let notes: Swift.String?
+  public let source: EitriHealth.HealthSourceInfo?
+  public init(id: Swift.String, exerciseType: Swift.String, platformDetails: EitriHealth.HealthExercisePlatformDetails = HealthExercisePlatformDetails(), startDate: Swift.String, endDate: Swift.String, durationSeconds: Swift.Double, title: Swift.String? = nil, notes: Swift.String? = nil, source: EitriHealth.HealthSourceInfo? = nil)
+}
+extension EitriHealth.HealthExercise : EitriHealth.HealthPagedRecord {
+  public var paginationId: Swift.String {
+    get
+  }
+  public var paginationStartDate: Swift.String {
+    get
+  }
+}
+public struct HealthReadExercisesOutput {
+  public let exercises: [EitriHealth.HealthExercise]
+  public let nextCursor: Swift.String?
+  public init(exercises: [EitriHealth.HealthExercise], nextCursor: Swift.String? = nil)
+}
+public struct HealthCharacteristicsOutput {
+  public var biologicalSex: Swift.String?
+  public var dateOfBirth: Swift.String?
+  public var bloodType: Swift.String?
+  public var fitzpatrickSkinType: Swift.String?
+  public var wheelchairUse: Swift.Bool?
+  public init(biologicalSex: Swift.String? = nil, dateOfBirth: Swift.String? = nil, bloodType: Swift.String? = nil, fitzpatrickSkinType: Swift.String? = nil, wheelchairUse: Swift.Bool? = nil)
+  public func toDictionary(requested: [EitriHealth.HealthCharacteristicName]) -> [Swift.String : Any]
+}
+public struct HealthDataTypeBinding {
+  public let sampleType: HealthKit.HKSampleType?
+  public let objectType: HealthKit.HKObjectType
+  public let authorizationTypes: [HealthKit.HKObjectType]
+  public let unit: Swift.String
+  public let hkUnit: HealthKit.HKUnit?
+  public init(sampleType: HealthKit.HKSampleType?, objectType: HealthKit.HKObjectType, authorizationTypes: [HealthKit.HKObjectType]? = nil, unit: Swift.String, hkUnit: HealthKit.HKUnit?)
+}
+public enum HealthDataTypeRegistry {
+  public static let bindings: [EitriHealth.HealthDataType : EitriHealth.HealthDataTypeBinding]
+  public static func binding(for type: EitriHealth.HealthDataType) throws -> EitriHealth.HealthDataTypeBinding
+}
+final public class HealthService {
+  public init(store: (any EitriHealth.HealthStoreProtocol)? = nil)
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  final nonisolated(nonsending) public func isAvailable() async throws -> [Swift.String : Any]
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  final nonisolated(nonsending) public func getSupportedDataTypes() async throws -> EitriHealth.HealthSupportedDataTypesOutput
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  final nonisolated(nonsending) public func requestPermissions(_ input: EitriHealth.HealthPermissionInput) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  final nonisolated(nonsending) public func readSamples(_ input: EitriHealth.HealthReadSamplesInput) async throws -> EitriHealth.HealthReadSamplesOutput
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  final nonisolated(nonsending) public func readExercises(_ input: EitriHealth.HealthReadExercisesInput) async throws -> EitriHealth.HealthReadExercisesOutput
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  final nonisolated(nonsending) public func getCharacteristics(_ input: EitriHealth.HealthCharacteristicsInput) async throws -> [Swift.String : Any]
+  #endif
+  @objc deinit
+}
+public struct SamplesCursor {
+  public let time: Foundation.Date
+  public let boundaryIds: Swift.Set<Swift.String>
+}
+public enum HealthModuleError : Swift.Error {
+  case invalidPayload
+  case moduleNotAvailable
+  public static func == (a: EitriHealth.HealthModuleError, b: EitriHealth.HealthModuleError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+final public class HealthModule : EitriContracts.EitriModule {
+  public init(service: EitriHealth.HealthService = HealthService())
+  final public func version() -> EitriContracts.ModuleVersion
+  final public func namespace() -> Swift.String
+  final public func start(contextProvider: any EitriContracts.EitriContextProvider) throws
+  @objc deinit
+}
+public protocol HealthStoreProtocol {
+  func isHealthDataAvailable() -> Swift.Bool
+  func authorizationStatus(for type: HealthKit.HKObjectType) -> HealthKit.HKAuthorizationStatus
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func requestAuthorization(toShare: Swift.Set<HealthKit.HKSampleType>, read: Swift.Set<HealthKit.HKObjectType>) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func getRequestStatusForAuthorization(toShare: Swift.Set<HealthKit.HKSampleType>, read: Swift.Set<HealthKit.HKObjectType>) async throws -> HealthKit.HKAuthorizationRequestStatus
+  #endif
+  func underlyingStore() -> HealthKit.HKHealthStore
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func executeSampleQuery(sampleType: HealthKit.HKSampleType, predicate: Foundation.NSPredicate?, limit: Swift.Int, sortDescriptors: [Foundation.NSSortDescriptor]?) async throws -> [HealthKit.HKSample]
+  #endif
+}
+final public class InternalHealthStoreManager : EitriHealth.HealthStoreProtocol {
+  public init(store: HealthKit.HKHealthStore = HKHealthStore())
+  final public func isHealthDataAvailable() -> Swift.Bool
+  final public func authorizationStatus(for type: HealthKit.HKObjectType) -> HealthKit.HKAuthorizationStatus
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  final nonisolated(nonsending) public func requestAuthorization(toShare: Swift.Set<HealthKit.HKSampleType>, read: Swift.Set<HealthKit.HKObjectType>) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  final nonisolated(nonsending) public func getRequestStatusForAuthorization(toShare: Swift.Set<HealthKit.HKSampleType>, read: Swift.Set<HealthKit.HKObjectType>) async throws -> HealthKit.HKAuthorizationRequestStatus
+  #endif
+  final public func underlyingStore() -> HealthKit.HKHealthStore
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  final nonisolated(nonsending) public func executeSampleQuery(sampleType: HealthKit.HKSampleType, predicate: Foundation.NSPredicate?, limit: Swift.Int, sortDescriptors: [Foundation.NSSortDescriptor]?) async throws -> [HealthKit.HKSample]
+  #endif
+  @objc deinit
+}
+extension EitriHealth.HealthDataType : Swift.Equatable {}
+extension EitriHealth.HealthDataType : Swift.Hashable {}
+extension EitriHealth.HealthDataType : Swift.RawRepresentable {}
+extension EitriHealth.HealthAvailabilityReason : Swift.Equatable {}
+extension EitriHealth.HealthAvailabilityReason : Swift.Hashable {}
+extension EitriHealth.HealthAvailabilityReason : Swift.RawRepresentable {}
+extension EitriHealth.HealthServiceError : Swift.Equatable {}
+extension EitriHealth.HealthServiceError : Swift.Hashable {}
+extension EitriHealth.HealthCharacteristicName : Swift.Equatable {}
+extension EitriHealth.HealthCharacteristicName : Swift.Hashable {}
+extension EitriHealth.HealthCharacteristicName : Swift.RawRepresentable {}
+extension EitriHealth.HealthModuleError : Swift.Equatable {}
+extension EitriHealth.HealthModuleError : Swift.Hashable {}
