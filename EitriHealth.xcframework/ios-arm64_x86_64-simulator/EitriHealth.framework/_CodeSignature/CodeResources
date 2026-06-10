@@ -6,7 +6,7 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		XdGuYJh1SaQLPlxDa812xmhy/6M=
+		WglKBsXXeoxVmc2HyBqdPYheaVo=
 		</data>
 		<key>Modules/EitriHealth.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -14,19 +14,19 @@
 		</data>
 		<key>Modules/EitriHealth.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		rpfVJWugUNhXEMBr51xoCOcWgDg=
+		4iAZPUzYK8+KLB+lvnbtnJJ3Kak=
 		</data>
 		<key>Modules/EitriHealth.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		t9eCuq3qKIPwcc3m0m0yeJJOsus=
+		BYSpZP3VS88lvhZMJSETw7Y3Fwg=
 		</data>
 		<key>Modules/EitriHealth.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		rpfVJWugUNhXEMBr51xoCOcWgDg=
+		4iAZPUzYK8+KLB+lvnbtnJJ3Kak=
 		</data>
 		<key>Modules/EitriHealth.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		jJRevdJjQEg8PUpq4Ak7MPA6O/A=
+		/gXiJVfmpj8eY3ntRGYBiAFkstk=
 		</data>
 		<key>Modules/EitriHealth.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -34,19 +34,19 @@
 		</data>
 		<key>Modules/EitriHealth.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		x6hhB32M4HvT1ecGgBVC1VLE+PE=
+		pz+lOMFimuVPRnxhvOgp5Mi72zY=
 		</data>
 		<key>Modules/EitriHealth.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		rxf8RNzeNN2xhA1Ved7cq5t29so=
+		GaOT6vTu3LG4JRRwxDY/GHLsgBk=
 		</data>
 		<key>Modules/EitriHealth.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		x6hhB32M4HvT1ecGgBVC1VLE+PE=
+		pz+lOMFimuVPRnxhvOgp5Mi72zY=
 		</data>
 		<key>Modules/EitriHealth.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		/rVEprKQLrjIATUrEqeMU5IvUJk=
+		kkG1SVHmKl8rB4VGEHHf9+T+4wo=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -62,28 +62,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RdFLpIS2vlcm432wal43SLCRHw8FK7xOLYg8Xukyy84=
+			F5hMcGkvAZotkmU94AGseWFnvOuWAj8Bbb7XLcEZ+Ss=
 			</data>
 		</dict>
 		<key>Modules/EitriHealth.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pRtanRBZJ/tfiDuWTo/lWX8C/F/FPxmuke7DU/3OA3s=
+			PE5CbaCJSd9tEIvZyXBBRrc3Z+CDZ+YzKuGR1kpy+r8=
 			</data>
 		</dict>
 		<key>Modules/EitriHealth.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RdFLpIS2vlcm432wal43SLCRHw8FK7xOLYg8Xukyy84=
+			F5hMcGkvAZotkmU94AGseWFnvOuWAj8Bbb7XLcEZ+Ss=
 			</data>
 		</dict>
 		<key>Modules/EitriHealth.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UTKhQ5nlC2/JOQ31o703bqbOJxJjqoOuRLGAWlfZJC4=
+			O2XTZkEACNatyExxINbnpmYPkVvboEVAaZlW2pXH1Ms=
 			</data>
 		</dict>
 		<key>Modules/EitriHealth.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
@@ -97,28 +97,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0HQNC0Ic9Zi+7YiQazAPWNnnG6o3/dPh0tigM5J3d4A=
+			EoJ6o/9jReVO73p65A1uO35aQ57iBbmMZy5JWoeuYSA=
 			</data>
 		</dict>
 		<key>Modules/EitriHealth.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LOk0aW2fZzjrA5b74Ol/FYHbjg/Rg3t3jh3X//sCgx0=
+			Ar/JbKZGyZevw2MjO+H7QIWOvMFaqyCrioEKZbXY8sc=
 			</data>
 		</dict>
 		<key>Modules/EitriHealth.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0HQNC0Ic9Zi+7YiQazAPWNnnG6o3/dPh0tigM5J3d4A=
+			EoJ6o/9jReVO73p65A1uO35aQ57iBbmMZy5JWoeuYSA=
 			</data>
 		</dict>
 		<key>Modules/EitriHealth.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FHa/1Fb9eqKst632bBVYVnJCmTAr0oJdW3EmNpJrY24=
+			/pFQsh3PepCkHswmSzcjQpwvsMZ+9UuyxuohoIv9wHQ=
 			</data>
 		</dict>
 	</dict>
