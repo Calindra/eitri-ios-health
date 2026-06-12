@@ -28,6 +28,9 @@ Your host app must include the following key in its `Info.plist` file:
 ```xml
 <key>NSHealthShareUsageDescription</key>
 <string>Your app needs access to your health data to provide health-based features.</string>
+
+<key>NSHealthUpdateUsageDescription</key>
+<string>Your app needs access to your health data to provide health-based features.</string>
 ```
 
 **Important Notes:**
